@@ -1,6 +1,7 @@
 from fastapi import FastAPI
-from routers import cs_tasks
+
 from auth import login
+from routers import cs_tasks
 
 app = FastAPI(title="CS Admin Tool")
 

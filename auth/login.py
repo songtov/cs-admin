@@ -1,9 +1,10 @@
 # auth/login.py
 
-from fastapi import APIRouter, HTTPException, Depends
-from fastapi.security import OAuth2PasswordRequestForm
 from datetime import datetime, timedelta
+
 import jwt
+from fastapi import APIRouter, Depends, HTTPException
+from fastapi.security import OAuth2PasswordRequestForm
 
 from auth.users_db import fake_users_db
 
@@ -11,6 +12,7 @@ SECRET_KEY = "your-secret-key"
 ALGORITHM = "HS256"
 
 router = APIRouter()
+
 
 @router.post("/login")
 def login(form_data: OAuth2PasswordRequestForm = Depends()):

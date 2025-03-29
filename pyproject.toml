@@ -37,5 +37,5 @@ cmd = "ptw . --now --clear"
 
 [tool.poe.tasks.run]
 help = "Run the main application"
-script = "main:main"
+shell = "fastapi dev main.py"
 envfile = ".env"

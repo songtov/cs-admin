@@ -1,8 +1,8 @@
 # auth/deps.py
 
+import jwt
 from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
-import jwt
 
 from auth.users_db import fake_users_db
 
@@ -10,6 +10,7 @@ SECRET_KEY = "your-secret-key"
 ALGORITHM = "HS256"
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
+
 
 def get_current_user(token: str = Depends(oauth2_scheme)):
     try:

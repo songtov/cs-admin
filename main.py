@@ -5,6 +5,7 @@ from fastapi import FastAPI
 
 from app.api.v1.auth.router import router as auth_router
 from app.api.v1.cs_tasks.router import router as cs_tasks_router
+from app.api.v1.data_clone.router import router as data_clone_router
 from app.core.config import settings
 from app.core.database import init_db
 
@@ -26,6 +27,7 @@ app = FastAPI(
 # Include routers
 app.include_router(auth_router)
 app.include_router(cs_tasks_router)
+app.include_router(data_clone_router)
 
 @app.get("/health")
 async def health_check():
